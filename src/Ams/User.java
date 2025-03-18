@@ -1,7 +1,7 @@
-package Ams;
+package ams;
 
 public class User {
-    private String userId;
+    private int userId;
     private String name;
     private String email;
     private String password;

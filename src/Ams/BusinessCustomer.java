@@ -1,4 +1,4 @@
-package Ams;
+package ams;
 
 public class BusinessCustomer extends User {
     private String companyName;      

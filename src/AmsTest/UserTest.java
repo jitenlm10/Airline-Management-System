@@ -1,8 +1,9 @@
-package AmsTest;
+package amsTest;
 
-import Ams.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import ams.User;
 
 public class UserTest {
 

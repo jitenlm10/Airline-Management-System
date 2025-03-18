@@ -1,8 +1,9 @@
-package AmsTest;
+package amsTest;
 
-import Ams.BusinessCustomer;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import ams.BusinessCustomer;
 
 public class BusinessCustomerTest {
 

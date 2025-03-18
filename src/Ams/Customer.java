@@ -1,4 +1,4 @@
-package Ams;
+package ams;
 
 public class Customer extends User {
 	private int loyaltyPoints;

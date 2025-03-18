@@ -1,4 +1,4 @@
-package Ams;
+package ams;
 
 public class AirlineAgent extends User {
     private String employeeId;  

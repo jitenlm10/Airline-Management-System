@@ -1,8 +1,9 @@
-package AmsTest;
+package amsTest;
 
-import Ams.AirlineAgent;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import ams.AirlineAgent;
 
 public class AirlineAgentTest {
 
