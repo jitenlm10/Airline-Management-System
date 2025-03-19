@@ -1,8 +1,9 @@
 package ams;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
+import java.util.List;
+import java.util.Map;
 
 public class Flight {
     private String flightId;
@@ -13,9 +14,7 @@ public class Flight {
     private int Seats; // number of passengers in one booking
     private String seatNumber;
     private int price;
-    private int economySeats; 
-    private int businessSeats; 
-    private int firstClassSeats;
+    private Map<String, Integer> seatClasses;
 
 
     private List<MealOption> mealOptions;
@@ -34,9 +33,8 @@ public class Flight {
                   LocalDateTime arrivalTime,
                   int Seats,
                   String seatNumber,
-                  int economySeats,
-                  int businessSeats,
-                  int firstClassSeats,
+                  int price,
+                  Map<String, Integer> seatClasses,
                   List<MealOption> mealOptions) {
         this.flightId = flightId;
         this.origin = origin;
@@ -45,13 +43,10 @@ public class Flight {
         this.arrivalTime = arrivalTime;
         this.Seats = Seats;
         this.seatNumber = seatNumber;
-        this.economySeats = economySeats;
-        this.businessSeats = businessSeats;
-        this.firstClassSeats = firstClassSeats;
+        this.price = price;
+        this.seatClasses = seatClasses;
         this.mealOptions = mealOptions;
     }
-
-
 
 
 	public String getFlightId() {
@@ -86,23 +81,13 @@ public class Flight {
 		return price;
 	}
 
-	public int getEconomySeats() {
-		return economySeats;
-	}
-
-	public int getBusinessSeats() {
-		return businessSeats;
-	}
-
-	public int getFirstClassSeats() {
-		return firstClassSeats;
+	public Map<String, Integer> getSeatClasses() {
+		return seatClasses;
 	}
 
 	public List<MealOption> getMealOptions() {
 		return mealOptions;
 	}
-
-
 
 
 	public enum MealOption {
