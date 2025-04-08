@@ -10,7 +10,6 @@ import java.awt.event.ActionEvent;
 public class LoginForm extends JFrame {
     private JTextField emailField;
     private JPasswordField passwordField;
-    private User registeredUser; // Holds the registered user
 
     public LoginForm() {
         setTitle("User Login");
@@ -42,17 +41,23 @@ public class LoginForm extends JFrame {
     }
 
     private void loginUser(ActionEvent e) {
-        String email = emailField.getText();
-        String password = new String(passwordField.getPassword());
+        String mockUserType = "Customer"; // Change to "Customer" or "BusinessCustomer" to test BookingScreen
 
-        if (registeredUser == null) {
-            JOptionPane.showMessageDialog(this, "No registered user. Please register first.");
-        } else if (registeredUser.getEmail().equals(email) &&
-                   registeredUser.getPassword().equals(password)) {
-            JOptionPane.showMessageDialog(this, "Login successful! Welcome " + registeredUser.getName());
+        // Create a dummy user
+        ams.User dummyUser = switch (mockUserType) {
+            case "Customer" -> new ams.Customer("C001", "Alice", "alice@example.com", "Password@123", 1200);
+            case "BusinessCustomer" -> new ams.BusinessCustomer("B001", "Bob", "bob@biz.com", "Password@123", "TechCorp", "ACC123");
+            default -> new ams.AirlineAgent("A001", "Agent Smith", "agent@airline.com", "Password@123", "EMP001");
+        };
+
+        // Launch the corresponding screen
+        if (dummyUser instanceof ams.AirlineAgent) {
+            new AddFlightScreen(dummyUser);
         } else {
-            JOptionPane.showMessageDialog(this, "Invalid email or password.", "Login Failed", JOptionPane.ERROR_MESSAGE);
+            new BookingScreen(dummyUser);
         }
+
+        dispose(); // Close login screen
     }
 
     private void openRegistrationForm(ActionEvent e) {
@@ -62,7 +67,6 @@ public class LoginForm extends JFrame {
 
     // Called from RegistrationForm to pass back the user
     public void setRegisteredUser(User user) {
-        this.registeredUser = user;
         this.setVisible(true); // Show login again
     }
 
